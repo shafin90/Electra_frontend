@@ -149,13 +149,157 @@ const products = [
             ]
         },
         "date": "2024-08-17"
+    },
+    {
+        "productName": "Smart Home Security Camera",
+        "previousPrice": 150.00,
+        "currentPrice": 120.00,
+        "isDiscountAvailable": true,
+        "discount": 20,
+        "reviews": [
+            {
+                "username": "home_guardian",
+                "comment": "Clear video and easy setup.",
+                "rating": 5
+            },
+            {
+                "username": "tech_savvy",
+                "comment": "App could use some improvements.",
+                "rating": 4
+            }
+        ],
+        "ratings": 4.4,
+        "stockNumber": 250,
+        "productImgs": {
+            "mainImg": "https://i5.walmartimages.com/asr/299c9aef-fd6d-426d-bcbc-f1945574730a.7933d342c6d74b4bb3f11a6cf10c4115.jpeg?odnWidth=612&odnHeight=612&odnBg=ffffff",
+            "additionalImgs": [
+                "path/to/securitycamera1.jpg",
+                "path/to/securitycamera2.jpg"
+            ]
+        },
+        "date": "2024-08-17"
+    },
+    {
+        "productName": "Smart Home Security Camera",
+        "previousPrice": 150.00,
+        "currentPrice": 120.00,
+        "isDiscountAvailable": true,
+        "discount": 20,
+        "reviews": [
+            {
+                "username": "home_guardian",
+                "comment": "Clear video and easy setup.",
+                "rating": 5
+            },
+            {
+                "username": "tech_savvy",
+                "comment": "App could use some improvements.",
+                "rating": 4
+            }
+        ],
+        "ratings": 4.4,
+        "stockNumber": 250,
+        "productImgs": {
+            "mainImg": "https://i5.walmartimages.com/asr/299c9aef-fd6d-426d-bcbc-f1945574730a.7933d342c6d74b4bb3f11a6cf10c4115.jpeg?odnWidth=612&odnHeight=612&odnBg=ffffff",
+            "additionalImgs": [
+                "path/to/securitycamera1.jpg",
+                "path/to/securitycamera2.jpg"
+            ]
+        },
+        "date": "2024-08-17"
+    }, {
+        "productName": "Smart Home Security Camera",
+        "previousPrice": 150.00,
+        "currentPrice": 120.00,
+        "isDiscountAvailable": true,
+        "discount": 20,
+        "reviews": [
+            {
+                "username": "home_guardian",
+                "comment": "Clear video and easy setup.",
+                "rating": 5
+            },
+            {
+                "username": "tech_savvy",
+                "comment": "App could use some improvements.",
+                "rating": 4
+            }
+        ],
+        "ratings": 4.4,
+        "stockNumber": 250,
+        "productImgs": {
+            "mainImg": "https://i5.walmartimages.com/asr/299c9aef-fd6d-426d-bcbc-f1945574730a.7933d342c6d74b4bb3f11a6cf10c4115.jpeg?odnWidth=612&odnHeight=612&odnBg=ffffff",
+            "additionalImgs": [
+                "path/to/securitycamera1.jpg",
+                "path/to/securitycamera2.jpg"
+            ]
+        },
+        "date": "2024-08-17"
+    },
+    {
+        "productName": "Smart Home Security Camera",
+        "previousPrice": 150.00,
+        "currentPrice": 120.00,
+        "isDiscountAvailable": true,
+        "discount": 20,
+        "reviews": [
+            {
+                "username": "home_guardian",
+                "comment": "Clear video and easy setup.",
+                "rating": 5
+            },
+            {
+                "username": "tech_savvy",
+                "comment": "App could use some improvements.",
+                "rating": 4
+            }
+        ],
+        "ratings": 4.4,
+        "stockNumber": 250,
+        "productImgs": {
+            "mainImg": "https://i5.walmartimages.com/asr/299c9aef-fd6d-426d-bcbc-f1945574730a.7933d342c6d74b4bb3f11a6cf10c4115.jpeg?odnWidth=612&odnHeight=612&odnBg=ffffff",
+            "additionalImgs": [
+                "path/to/securitycamera1.jpg",
+                "path/to/securitycamera2.jpg"
+            ]
+        },
+        "date": "2024-08-17"
+    },
+    {
+        "productName": "Smart Home Security Camera",
+        "previousPrice": 150.00,
+        "currentPrice": 120.00,
+        "isDiscountAvailable": true,
+        "discount": 20,
+        "reviews": [
+            {
+                "username": "home_guardian",
+                "comment": "Clear video and easy setup.",
+                "rating": 5
+            },
+            {
+                "username": "tech_savvy",
+                "comment": "App could use some improvements.",
+                "rating": 4
+            }
+        ],
+        "ratings": 4.4,
+        "stockNumber": 250,
+        "productImgs": {
+            "mainImg": "https://i5.walmartimages.com/asr/299c9aef-fd6d-426d-bcbc-f1945574730a.7933d342c6d74b4bb3f11a6cf10c4115.jpeg?odnWidth=612&odnHeight=612&odnBg=ffffff",
+            "additionalImgs": [
+                "path/to/securitycamera1.jpg",
+                "path/to/securitycamera2.jpg"
+            ]
+        },
+        "date": "2024-08-17"
     }
 ]
 
 
 
 
-const CardContainer = () => {
+const CardContainer = ({ tag, heading, countdown, mdColNum, lgColNum, sliceAt }) => {
     const [second, setSecond] = useState(59);
     const [minute, setMinute] = useState(59);
     const [hour, setHour] = useState(23);
@@ -196,14 +340,14 @@ const CardContainer = () => {
                 minute={minute}
                 hour={hour}
                 day={day}
-                tag="Today's"
-                heading="Flash Sales"
-                countdown={true}
+                tag={tag}
+                heading={heading}
+                countdown={countdown}
             />
             <Row className=' g-3 mb-4'>
                 {products.length > 3 ?
-                    products.slice(0, 3).map(item => (
-                        <Col key={item.productName} xs={12} sm={6} md={4} lg={4}>
+                    products.slice(0, sliceAt).map(item => (
+                        <Col key={item.productName} xs={12} sm={6} md={mdColNum} lg={lgColNum}>
                             <ProductCard item={item} />
                         </Col>
                     )) :

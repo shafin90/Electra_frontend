@@ -3,7 +3,7 @@ import CategoryBox from './CategoryBox/CategoryBox';
 import { Button, Container } from 'react-bootstrap';
 import SectionTag from '../SectionTag/SectionTag';
 
-const CategoryBoxContainer = () => {
+const CategoryBoxContainer = ({ tag, heading, countdown }) => {
     const [leftMove, setLeftMove] = useState(0);
 
     const handleLeftMove = () => {
@@ -19,13 +19,13 @@ const CategoryBoxContainer = () => {
     }
 
     return (
-        <Container  className=' mb-5 border-b border-opacity-25'>
+        <Container className=' my-5 pb-5 border-bottom border-opacity-25'>
 
             <div className=' d-flex justify-content-between align-items-center'>
                 <SectionTag
-                    tag="Categories"
-                    heading="Browse By Category"
-                    countdown={false}
+                    tag={tag}
+                    heading={heading}
+                    countdown={countdown}
                 />
 
                 <div className=' d-flex justify-content-end align-items-center '>
